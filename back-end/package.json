@@ -1,0 +1,21 @@
+{
+  "name": "GED-back-end",
+  "version": "1.0.0",
+  "description": "WEBAPI - Gerenciamento eletrônico de documentos",
+  "main": "index.js",
+  "scripts": {
+    "test": "start index.js",
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server"
+  },
+  "keywords": [
+    "GED"
+  ],
+  "author": "Higor Henrique Campos de Assis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
