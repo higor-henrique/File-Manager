@@ -10,5 +10,4 @@ app.listen(port);
 app.use('/documento', documentoRoutes);
 app.use('/login', loginRoutes);
 
-
 console.log('Message RESTful API server started on: ' + port);

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
-
-mongoose.connect(`mongodb://root:passwordRoot@173.10.0.2:27017`, {
+console.log('teeeeeeeeeeeeeeste')
+mongoose.connect(`mongodb+srv://admin:admin@cluster0.5r0ce.mongodb.net/FileManager?retryWrites=true&w=majority`, {
 
       useNewUrlParser: true,
       useUnifiedTopology: true,
