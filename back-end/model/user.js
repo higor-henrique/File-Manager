@@ -1,4 +1,3 @@
-console.log('UserSchema')
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
@@ -19,9 +18,9 @@ data : {
     default: Date.now(),
 },
 });
-const user = mongoose.model("user" , UserSchema)
-
-module.exports = user;
+const User = mongoose.model("User" , UserSchema)
+// return mongoose.model('tasks',Task);
+module.exports = User;
 
 
 

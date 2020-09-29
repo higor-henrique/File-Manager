@@ -1,23 +1,51 @@
 express = require('express');
 const loginController = require('../controllers/loginController')
-const user = require('../model/user')
 router = express.Router();
+const db =  require('../config/db')
+
+const mongoose = require('mongoose')
+const User = require('../model/user')
+
+
 
 
 
 router.get('/', async (req,res) =>  {
-    console.log('t4e')
-        const response = await loginController.read;
+   
+        const response = await User.find({});
 
         res.send({response});
 });
 
 router.post('/', async (req, res) => {
-    try {               
-        return user = await user.create(req.body )
+    try {                          
+      const user = new User(req.body)
+
+      user.save;
+
+      res.send({user});
       } catch (error) {
+        console.log(error);
         res.status(error.status).send(error.data)
       }      
 
 });
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
