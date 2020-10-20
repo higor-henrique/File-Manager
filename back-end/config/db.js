@@ -1,12 +1,17 @@
 
-const mongoose = require("mongoose")
-mongoose.connect(`mongodb+srv://admin:admin@cluster0.5r0ce.mongodb.net/file-manager?retryWrites=true&w=majority`, {  
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: true
-    })
-    .catch((err) => console.log("error: " + err))
-
+ const mongoose = require("mongoose")
+// mongoose.connect(`mongodb+srv://admin:admin@cluster0.5r0ce.mongodb.net/file-manager?retryWrites=true&w=majority`, {  
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//       useFindAndModify: true
+//     })
+//     .catch((err) => console.log("error: " + err))
+mongoose.connect('mongodb://localhost:27017/FileManager', {  
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: true
+      })
+      .catch((err) => console.log("error: " + err))
     
 const db = mongoose.connection
 
