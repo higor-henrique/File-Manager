@@ -17,3 +17,7 @@ app.use('/documento', documentoController);
 app.use('/login', loginController);
 
 console.log('Message RESTful API server started on: ' + port);
+//Client ID
+//482489181589-i22ti5mhf8qja97gqvfi19tjk5klbnv9.apps.googleusercontent.com
+//Client SECRET
+//7KoLCYF2hSKzWGfxW3GStTGe
