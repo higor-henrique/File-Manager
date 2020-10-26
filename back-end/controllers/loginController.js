@@ -1,43 +1,42 @@
+
+express = require('express');
+router = express.Router();
+
 const User = require('../model/user')
 
-module.exports = class loginController {
-  static async login(req, res) {
-    const {
-      email,
-      password
-    } = req.body
+router.get('/', async (req,res) =>  {
+  try {             
+    res.render('index.ejs');
+  }
+  catch(error) {
+    console.log(error)
+    res.status(error.status).send(error.data)
+  }
+});
 
-    try {
-      var user = new User(req.body);
+router.get('/', async (req,res) =>  {
+  try {             
+       var response = await   User.find();
+       res.send(response)
+  }
+  catch(error) {
+    console.log(error)
+    res.status(error.status).send(error.data)
+  }
+});
+
+router.post('/', async (req, res) => {
+    try {      
+      console.log(req.body)                    
+      var user = new User(req.body);  
+      user.save()  
       
-      if(user.findOne(email) != null) {
-        console.log('logado');
+       res.send(user)
+      } catch (error) {
+        console.log(error);
+        res.status(error.status).send(error.data)
       }      
 
-    } catch (error) {
-      console.log({
-        error: "Error no authentication"
-      })
-      return res.status(500).send(error)
-    }
-  }
+});
+module.exports = router;
 
-  static async register(req, res) {
-    try {   
-     
-      user.save(function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('meow');
-        }
-      });
-
-    } catch (error) {
-      console.log(error)
-      return res.status(500).send({
-        error: error.errorUser
-      })
-    }
-  }
-}

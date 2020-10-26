@@ -1,5 +1,5 @@
-const documentoRoutes = require('../routes/documentoRoutes');
-const loginRoutes = require('../routes/loginRoutes');
+const documentoController = require('../controllers/documentoController');
+const loginController = require('../controllers/loginController');
 var bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('../config/db');
@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 app.set('views', '../views');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/documento', documentoRoutes);
-app.use('/login', loginRoutes);
+app.use('/documento', documentoController);
+app.use('/login', loginController);
 
 console.log('Message RESTful API server started on: ' + port);
