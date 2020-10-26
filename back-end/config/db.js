@@ -6,7 +6,7 @@
 //       useFindAndModify: true
 //     })
 //     .catch((err) => console.log("error: " + err))
-mongoose.connect('mongodb://localhost:27017/FileManager', {  
+mongoose.connect('mongodb://localhost:27017/fileManager', {  
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: true

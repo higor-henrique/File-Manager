@@ -1,28 +1,43 @@
-const mongoose = require('mongoose');
-console.log('teste')
-class loginController {
-  static async read(req, res){
+const User = require('../model/user')
+
+module.exports = class loginController {
+  static async login(req, res) {
+    const {
+      email,
+      password
+    } = req.body
+
     try {
+      var user = new User(req.body);
       
-      const response = await mongoose.model('user').find()
-
-      return res.send({ response });
+      if(user.findOne(email) != null) {
+        console.log('logado');
+      }      
 
     } catch (error) {
-      res.status(error.status).send(error.data)
-    }
-
-  }
-  static async create(req, res){
-    try {
-      const response = mongoose.model('user').create(req.body) 
-      res.send({ response })
-    } catch (error) {
-      res.status(error.status).send(error.data)
+      console.log({
+        error: "Error no authentication"
+      })
+      return res.status(500).send(error)
     }
   }
 
+  static async register(req, res) {
+    try {   
+     
+      user.save(function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('meow');
+        }
+      });
+
+    } catch (error) {
+      console.log(error)
+      return res.status(500).send({
+        error: error.errorUser
+      })
+    }
+  }
 }
-
-
-module.exports = loginController

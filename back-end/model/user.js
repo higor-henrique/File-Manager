@@ -18,8 +18,8 @@ data : {
     default: Date.now(),
 },
 });
-const User = mongoose.model("User" , UserSchema)
-// return mongoose.model('tasks',Task);
+const User = mongoose.model("user" , UserSchema)
+
 module.exports = User;
 
 
