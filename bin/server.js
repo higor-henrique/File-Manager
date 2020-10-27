@@ -1,5 +1,5 @@
-const documentoController = require('../controllers/documentoController');
-const loginController = require('../controllers/loginController');
+const documentoController = require('../app/controllers/documentoController');
+const loginController = require('../app/controllers/loginController');
 var bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('../config/db');
