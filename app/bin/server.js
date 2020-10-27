@@ -18,6 +18,6 @@ app.use('/login', loginController);
 
 console.log('Message RESTful API server started on: ' + port);
 //Client ID
-//482489181589-i22ti5mhf8qja97gqvfi19tjk5klbnv9.apps.googleusercontent.com
+//741835335557-chkbvfrg6kjm8tiugg6abteahqs0pgap.apps.googleusercontent.com
 //Client SECRET
-//7KoLCYF2hSKzWGfxW3GStTGe
+//lvcRvRgG4ikUqs9FxH4gmKhS

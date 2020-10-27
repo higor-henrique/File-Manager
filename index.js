@@ -1,40 +1,34 @@
-//index.js
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
- 
+
+
+
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
- 
-function callGDriveApi(callback){
-    // Load client secrets from a local file.
-    fs.readFile('credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    // Authorize a client with credentials, then call the Google Drive API.
-        if(callback)
-            authorize(JSON.parse(content), callback);
-        else
-            authorize(JSON.parse(content), listFiles);//default
-    });
-}
- 
+
+// Load client secrets from a local file.
+fs.readFile('credentials.json', (err, content) => {
+  if (err) return console.log('Error loading client secret file:', err);
+  // Authorize a client with credentials, then call the Google Drive API.
+  authorize(JSON.parse(content), listFiles);
+});
+
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-
 function authorize(credentials, callback) {
-    console.log('ttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
- 
+
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, (err, token) => {
     if (err) return getAccessToken(oAuth2Client, callback);
@@ -42,7 +36,7 @@ function authorize(credentials, callback) {
     callback(oAuth2Client);
   });
 }
- 
+
 /**
  * Get and store new token after prompting for user authorization, and then
  * execute the given callback with the authorized OAuth2 client.
@@ -73,7 +67,7 @@ function getAccessToken(oAuth2Client, callback) {
     });
   });
 }
- 
+
 /**
  * Lists the names and IDs of up to 10 files.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
@@ -96,7 +90,3 @@ function listFiles(auth) {
     }
   });
 }
- 
-callGDriveApi();
- 
-module.exports = callGDriveApi;
