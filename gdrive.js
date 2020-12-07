@@ -1,8 +1,10 @@
 const fs = require("fs");
 const {google} = require('googleapis');
 
+ console.log(google.drive.files)
+
 function imageUpload(fileName, filePath, callback){
-    require("./index.js")((auth) => {
+    require("./drive.js"); function auth(auth) {       
         const fileMetadata = {
             name: fileName
         };
@@ -13,6 +15,8 @@ function imageUpload(fileName, filePath, callback){
         }
         
         const drive = google.drive({version: 'v3', auth});
+        console.log(drive.files.list());
+
         drive.files.create({
             resource: fileMetadata,
             media: media,
@@ -21,15 +25,19 @@ function imageUpload(fileName, filePath, callback){
             if (err) {
               // Handle error
               console.error(err);
+
+
+              
             } else {
               callback(file.data.id);
             }
           });
-    });
+
+        }
 }
 
-imageUpload('imagem.jpeg', 'imagem.jpg', ((g)=> {
-    console.log(g)
+imageUpload('imagem.jpg', './imagem.jpg', ((g)=> {
+    // console.log("tttttttttttttttttttttttttt",g)
 }));
 
 

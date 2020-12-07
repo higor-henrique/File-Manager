@@ -2,10 +2,10 @@
   "name": "GED-back-end",
   "version": "1.0.0",
   "description": "WEBAPI - Gerenciamento eletrônico de documentos",
-  "main": "index.js",
+  "main": "app/bin/server.js",
   "scripts": {
-    "test": "start index.js",
-    "dev": "node node_modules/nodemon/bin/nodemon bin/server"
+    "test": "start server.js",
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server server.js"
   },
   "keywords": [
     "GED"
